@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="style.css" media="screen" rel="stylesheet" type="text/css"/>
+  <title><%= @item[:title] %></title>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header-wrap">
+      <div class="header">
+        <div class="header-logo"><strong>owl-hollow</strong>.net</div>
+        <ul class="header-menu">
+          <li class="header-menu-item_active"><span>Blog</span></li>
+          <li><a href="/projects/">Projects</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="titlebar-wrap">
+      <div class="titlebar"><h1>Blog</h1></div>
+    </div>
+    <div class="content">
+      <%= yield %>
+    </div>
+  </div>
+  <div class="footer-wrap">
+    <div class="footer">&copy; Kirill Lebedev</div>
+  </div>
+</body>
+</html>
