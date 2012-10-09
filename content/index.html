@@ -2,28 +2,15 @@
 title: Home
 ---
 <ul class="blog-posts">
-  <li class="panel">
-    <div class="blog-posts-item-date">
-      <span class="blog-posts-item-date-month">JAN</span><br/>
-      <span class="blog-posts-item-date-date">15</span><br/>
-      <span class="blog-posts-item-date-year">2011</span>
-    </div>
-    <div class="blog-posts-item-body">
-      <h2>Upcoming design weekly recap</h2>
-      <div class="blog-posts-item-lead">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</div>
-    </div>
-  </li>
-  <li class="panel">
-    <div class="blog-posts-item-date">
-      <span class="blog-posts-item-date-month">JAN</span><br/>
-      <span class="blog-posts-item-date-date">15</span><br/>
-      <span class="blog-posts-item-date-year">2011</span>
-    </div>
-    <div class="blog-posts-item-body">
-      <h2>Upcoming design weekly recap</h2>
-      <div class="blog-posts-item-lead">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</div>
-    </div>
-  </li>
+  <% get_blog_posts.each do |post| %>
+    <li class="panel blog-posts-item">
+      <%= render 'date', date: get_item_date(post) %>
+      <div class="blog-posts-item-body">
+        <h2><a href="<%= post.identifier %>"><%= post[:title] %></a></h2>
+        <div class="blog-posts-item-lead"><%= post[:lead] %></div>
+      </div>
+    </li>
+  <% end %>
 </ul>
 <!--ul class="pager">
   <li class="pager-item_next"><a href="">&nbsp;</a></li>

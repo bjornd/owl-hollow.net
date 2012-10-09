@@ -104,9 +104,10 @@ ul {
   background: white;
 }
 
-.blog-posts li {
+.blog-posts-item {
   padding: 20px;
   margin-bottom: 18px;
+  min-height: 70px;
 }
 
   .blog-posts-item-date {
@@ -133,11 +134,15 @@ ul {
     margin-left: 75px;
   }
 
-    .blog-posts li h2 {
+    .blog-posts-item-body h2 {
       margin: 0 0 10px 0;
       font-size: 16px;
       color: #104863;
     }
+
+      .blog-posts-item-body h2 a {
+        color: #104863;
+      }
 
     .blog-posts-item-lead {
       font-size: 14px;
