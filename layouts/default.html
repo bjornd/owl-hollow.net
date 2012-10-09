@@ -11,14 +11,28 @@
       <div class="header">
         <div class="header-logo"><strong>owl-hollow</strong>.net</div>
         <ul class="header-menu">
-          <li class="header-menu-item_active"><span>Blog</span></li>
-          <li><a href="/projects/">Projects</a></li>
-          <li><a href="/about/">About</a></li>
+          <% if @item.identifier == '/' %>
+            <li class="header-menu-item_active"><span>Blog</span></li>
+          <% else %>
+            <li><a href="/">Blog</a></li>
+          <% end %>
+
+          <% if @item.identifier == '/projects/' %>
+            <li class="header-menu-item_active"><span>Projects</span></li>
+          <% else %>
+            <li><a href="/projects/">Projects</a></li>
+          <% end %>
+
+          <% if @item.identifier == '/about/' %>
+            <li class="header-menu-item_active"><span>About</span></li>
+          <% else %>
+            <li><a href="/about/">About</a></li>
+          <% end %>
         </ul>
       </div>
     </div>
     <div class="titlebar-wrap">
-      <div class="titlebar"><h1>Blog</h1></div>
+      <div class="titlebar"><h1><%= @item[:blog_post] ? "Blog" : @item[:title] %></h1></div>
     </div>
     <div class="content">
       <%= yield %>

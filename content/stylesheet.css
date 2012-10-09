@@ -62,7 +62,8 @@ ul {
     }
 
       .header-menu li a {
-        padding: 10px;
+        padding: 12px;
+        text-decoration: underline;
       }
 
     .header-menu-item_active span {
