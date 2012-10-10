@@ -1,0 +1,39 @@
+---
+title: Fighting the global variable leaks in JS
+blog_post: true
+---
+<div class="blog-posts-item panel">
+  <%= render 'date', date: get_item_date(@item) %>
+  <div class="blog-posts-item-body">
+    <h2><%= @item[:title] %></h2>
+    <div class="blog-posts-item-lead">
+<h3>Problem</h3>
+<p>JavaScript is a great language but not ideal as everything in this world. One of the well-known issue of JavaScript is global variable leaks. It's very easy to make a mistake which leads to such leaks and sometimes it's very hard to fix such mistakes, especially if you work with a huge legacy codebase. Usually global leaks are caused by the undeclared or improperly declared variables. Here are some examples to demonstrate the common cases:</p>
+<pre><code>
+(function(){
+  someVariable = 1;  // Someone just forgot to declare variable
+})();
+(function(){
+  var someVariable;  // Variable is properly declared,
+  someVaraible = 1;  // but later its name was misspelled
+})();
+(function(){
+  var i;             // "," was accidentally changed to ";"
+      j;             // j is now global variable
+})();
+</code></pre>
+<p>The sad fact is that often the examples above will work as expected until the name collision will cause some error in program logic.</p>
+<h3>Detection</h3>
+<p>So imagine you have some web-page or web-application that uses JavaScript extensively and you want to know what global variables leaks while it works. The easiest way to do it is to use this <a href="https://github.com/kangax/detect-global">nice script</a> written by <a href="http://perfectionkills.com/">Juriy Zaytsev</a>. You can use it as bookmarklet or just run in the console. Once you run the script and click "Analyze" you'll see a report in the console. So now you know what variables leaked to the global scope. But how to find where this variables were declared in your code. Sometimes you can just search against all your sourcebase to find the place where variable was improperly declared or used. However in case this variable is used very often or its name consists of only one letter it 's hardly possible to find it that way. Fortunately there is a better way.</p>
+<h3>Extermination</h3>
+<h3>Preventive measures</h3>
+<p>It's worth to add that some measures could be taken in the first place to prevent global variable leaks. First of all ECMAScript 5 standard introduced a strict mode, which makes browser throw an exception in some cases, which usually lead to errors and bad design. One of this cases is implicit global creation, which was demonstrated in the examples above. Note that strict mode <a href>is supported</a> by the most of the modern browsers, while the strict mode statement will be just ignored in the browsers which doesn't support it. You can read more about strict mode in the <a href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/">great article</a> by John Resig. So if you use strict mode and forgot to declare a variable or just misspelled its name you will be notified with browser exception immediately:</p>
+<pre><code>
+(function(){
+  "use strict";
+  someVaraible = 1; // "ReferenceError: someVaraible is not defined" will be thrown here
+})();
+</code></pre>
+    </div>
+  </div>
+</div>
