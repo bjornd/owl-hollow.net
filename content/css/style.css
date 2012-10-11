@@ -27,7 +27,7 @@ ul {
 }
 
 .header-wrap {
-  background: url('img/header-bg.png');
+  background: url('../img/header-bg.png');
 }
 
 .header {
@@ -75,7 +75,7 @@ ul {
     }
 
 .titlebar-wrap {
-  background: url('img/titlebar-bg.png');
+  background: url('../img/titlebar-bg.png');
 }
 
 .titlebar {
@@ -116,7 +116,7 @@ ul {
     text-align: right;
     width: 40px;
     padding-right: 18px;
-    background: url('img/date-divider.png') no-repeat right;
+    background: url('../img/date-divider.png') no-repeat right;
   }
 
     .blog-posts-item-date-month {
@@ -135,15 +135,29 @@ ul {
     margin-left: 75px;
   }
 
+    .blog-posts-item-body pre {
+        background: 'black';
+        border-radius: 5px;
+        padding: 8px;
+    }
+
     .blog-posts-item-body h2 {
       margin: 0 0 10px 0;
-      font-size: 16px;
+      font-size: 18px;
       color: #104863;
     }
 
       .blog-posts-item-body h2 a {
         color: #104863;
       }
+
+    .blog-posts-item-body h3 {
+        font-size: 16px;
+    }
+
+    .blog-posts-item-body a {
+        color: #104863;
+    }
 
     .blog-posts-item-lead {
       font-size: 14px;
@@ -178,7 +192,7 @@ ul {
     }
 
 .footer-wrap {
-  background: url('img/header-bg.png');
+  background: url('../img/header-bg.png');
 }
 
 .footer {
