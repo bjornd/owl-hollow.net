@@ -66,6 +66,10 @@ ul {
         text-decoration: underline;
       }
 
+        .header-menu li span a {
+            padding: 0;
+        }
+
     .header-menu-item_active span {
       padding: 12px;
       padding-bottom: 10px;
