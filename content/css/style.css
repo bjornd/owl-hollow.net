@@ -168,6 +168,24 @@ ul {
       color: #666666;
     }
 
+.projects-item {
+  padding: 10px;
+  font-size: 14px;
+  width: 430px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px;
+}
+
+  .projects-item h2 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+  }
+
+    .projects-item h2 a {
+      color: #104863;
+    }
+
 .pager {
   text-align: center;
 }
