@@ -34,9 +34,11 @@ published: true
 <pre class="syntax"><code class="language-javascript">
 Object.defineProperty(window, 'someVaraible', {
   get: function(){
+    console.trace();
     debugger;  // Browser will stop executing JavaScript here and show the current script in debugger
   },
   set: function(){
+    console.trace();
     debugger;
   }
 });
